@@ -26,10 +26,15 @@
               </div>
               
               <div class="d-grid mb-2">
-                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Add Country</button>
+                <button class="d-inline btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Add Country 
+                  <div wire:loading.delay.shortest wire:target="submit" style="margin: 0 0 5px 60px;">
+                    @livewire('loading')
+                  </div>
+                </button> 
               </div>
-            </form>
+            </form>            
           </div>
+          
           <div class="card-body p-4 p-sm-5">
             <h5 class="card-title text-center mb-5 fw-bold fs-5">All Countries</h5>
             <div class="form-group mb-2">

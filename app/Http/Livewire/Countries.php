@@ -25,6 +25,7 @@ class Countries extends Component
     }
 
     public function submit(){
+        sleep(1);
         $this->validate([
             'continent' => 'required',
             'country' => 'required|min:3',
@@ -51,9 +52,9 @@ class Countries extends Component
     {
         return view('livewire.countries',[
             'continents'=> Continent::all(),
-            'countries'=> Country::paginate(5),
+            'countries'=> Country::orderBy('id', 'DESC')->paginate(5),
             'searches' => Country::where('country', 'like', '%'.$this->search.'%')
-                                ->orWhere('capital', 'like', '%'.$this->search.'%')->paginate(5),
+                                ->orWhere('capital', 'like', '%'.$this->search.'%')->orderBy('id', 'DESC')->paginate(5),
         ]);
     }
 }
